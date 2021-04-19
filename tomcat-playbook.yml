@@ -50,8 +50,14 @@
       recurse: yes
       state: directory
 
-  - name: Run Tomcat
-    shell: ./startup.sh
-    args:
-      chdir: /opt/tomcat/bin
-      
+  - name: Copy Tomcat service from local to remote
+    copy:
+       src: tomcat.service
+       dest: /etc/systemd/system/
+       mode: 0755
+
+  - name: enable tomcat startup
+    systemd:
+      name: tomcat
+      enabled: yes
+      state: restarted
