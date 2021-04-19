@@ -50,9 +50,7 @@
       recurse: yes
       state: directory
 
-  - name: Start and enable Tomcat service
-    systemd:
-      name: tomcat
-      state: started
-      enabled: true
-      daemon_reload: true
+  - name: Startup Tomcat service
+    command:
+      cmd: /opt/comcat/bin/starup.sh
+      
