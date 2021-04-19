@@ -50,7 +50,8 @@
       recurse: yes
       state: directory
 
-  - name: Startup Tomcat service
-    command:
-      cmd: /opt/tomcat/bin/starup.sh
+  - name: Run Tomcat
+    shell: ./startup.sh
+    args:
+      chdir: /opt/tomcat/bin
       
