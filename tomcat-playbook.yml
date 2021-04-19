@@ -52,5 +52,5 @@
 
   - name: Startup Tomcat service
     command:
-      cmd: /opt/comcat/bin/starup.sh
+      cmd: /opt/tomcat/bin/starup.sh
       
