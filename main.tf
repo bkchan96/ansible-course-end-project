@@ -84,7 +84,7 @@ resource "aws_instance" "web" {
   }
 
   provisioner "local-exec" {
-    command = "terraform output private-key | sed '1d' | sed '28d' | sed '28d' > ~/.ssh/client-server.pem; chmod 600 ~/.ssh/client-server.pem"
+    command = "terraform output private-key | sed '1d' | sed '28d' | sed '28d' > ./client-server.pem; chmod 600 ./client-server.pem"
   }
 
 }
