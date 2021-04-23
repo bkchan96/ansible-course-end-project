@@ -61,3 +61,15 @@
       name: tomcat
       enabled: yes
       state: restarted
+
+  - name: Download WAR to server
+    synchronize: src=target/bookzy.war dest=/home/ubuntu/bookzy.war
+
+  - name: Unzip WAR file
+    unarchive: src=/home/ubuntu/bookzy.war dest=/opt/tomcat7/webapps/ROOT/ copy=no mode=0755 owner=tomcat7 group=tomcat7
+    notify:
+        - Restart tomcat
+
+  handlers:
+    - name: Restart tomcat
+      service: name=tomcat state=restarted
