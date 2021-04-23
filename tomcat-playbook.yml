@@ -66,7 +66,7 @@
     synchronize: src=target/bookzy.war dest=/home/ubuntu/bookzy.war
 
   - name: Unzip WAR file
-    unarchive: src=/home/ubuntu/bookzy.war dest=/opt/tomcat7/webapps/ROOT/ copy=no mode=0755 owner=tomcat7 group=tomcat7
+    unarchive: src=/home/ubuntu/bookzy.war dest=/opt/tomcat7/webapps/ROOT/ copy=no mode=0755 owner=tomcat group=tomcat
     notify:
         - Restart tomcat
 
